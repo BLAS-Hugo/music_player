@@ -117,43 +117,75 @@ class _HomeState extends State<Home> {
                         ])),
                 Padding(padding: EdgeInsets.all(1.0.h)),
                 ElevatedButton(
-                  onPressed: () => {
-                    setState(() => {
-                      if(playing) {
-                        playing = false,
-                        audioPlayerPause()
-                      } else if (!playing) {
-                        playing = true,
-                        audioPlayerPlay()
-                      }
-                    })
-                  },
-                  child: Icon(playing == false ? Icons.play_arrow : Icons.pause, color: Colors.grey[900], size: 50),
-                  style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
-                    padding: EdgeInsets.all(3),
-                    primary: Colors.grey[200],
-                  )
+                    onPressed: () => {
+                      setState(() => {
+                        if(playing) {
+                          playing = false,
+                          audioPlayerPause()
+                        } else if (!playing) {
+                          playing = true,
+                          audioPlayerPlay()
+                        }
+                      })
+                    },
+                    child: Icon(playing == false ? Icons.play_arrow : Icons.pause, color: Colors.grey[900], size: 45),
+                    style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(6.0),
+                      primary: Colors.grey[200],
+                    )
                 ),
-
+                Padding(padding: EdgeInsets.only(top: 14.0.h)),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Container(
+                        child: Column(
+                            children: <Widget>[
+                              Icon(CupertinoIcons.music_albums_fill, color: Colors.grey[600]),
+                              CustomText('Musique', color: Colors.grey[600], fontWeight: FontWeight.w300, fontSize: 10.0)
+                            ]
+                        )
+                    ),
+                    Container(
+                        child: Column(
+                            children: <Widget>[
+                              ElevatedButton(
+                                  onPressed: () => {
+                                    setState(() => {
+                                      if(playing) {
+                                        playing = false,
+                                        audioPlayerPause()
+                                      } else if (!playing) {
+                                        playing = true,
+                                        audioPlayerPlay()
+                                      }
+                                    })
+                                  },
+                                  child: Icon(playing == false ? Icons.play_arrow : Icons.pause, color: Colors.grey[900], size: 15),
+                                  style: ElevatedButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    primary: Colors.grey[200],
+                                  )
+                              ),
+                            ]
+                        )
+                    ),
+                    Container(
+                        child: Column(
+                            children: <Widget>[
+                              Icon(CupertinoIcons.music_house_fill, color: Colors.grey[600]),
+                              CustomText('Multiroom', color: Colors.grey[600], fontWeight: FontWeight.w300, fontSize: 10.0)
+                            ]
+                        )
+                    )
+                  ],
+                )
               ]
           )
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[900],
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.music_albums_fill),
-              label: 'Musique',
-              backgroundColor: Colors.grey[600]
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.music_house_fill),
-              backgroundColor: Colors.grey[600],
-              label: 'Multiroom'
-          )
-        ],
-      ),
+
     );
   }
 

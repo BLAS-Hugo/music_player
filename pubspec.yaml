@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
   sizer: ^2.0.15
   http: ^0.13.3
-  audioplayer: ^0.8.1
+  audioplayers: ^0.20.1
 
 
   # The following adds the Cupertino Icons font to your application.
